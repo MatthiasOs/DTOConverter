@@ -1,5 +1,6 @@
 package de.ossi;
 
+import de.ossi.annotation.SingleResponsibility;
 import de.ossi.data.AddressDTO;
 import de.ossi.data.CustomerDTO;
 import de.ossi.data.CustomerEntity;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 
+@SingleResponsibility
 @RequiredArgsConstructor
 public class CustomerConverter implements BiFunction<CustomerEntity, String, CustomerDTO> {
 
