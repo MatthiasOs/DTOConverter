@@ -5,11 +5,11 @@ import de.ossi.data.CustomerDTO;
 import de.ossi.data.CustomerEntity;
 import lombok.RequiredArgsConstructor;
 
+import javax.inject.Inject;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor_ = @Inject)
 public class Server {
 
     private final AtomicInteger atomicInteger = new AtomicInteger();
@@ -19,7 +19,7 @@ public class Server {
     public List<CustomerDTO> getAllCustomer() {
         return allCustomersDB.stream()
                              .map(e -> customerConverter.apply(e, "" + atomicInteger.incrementAndGet()))
-                             .collect(Collectors.toList());
+                             .toList();
     }
 
     private final List<CustomerEntity> allCustomersDB = List.of(

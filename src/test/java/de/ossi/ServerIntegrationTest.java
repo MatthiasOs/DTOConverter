@@ -1,5 +1,7 @@
 package de.ossi;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import de.ossi.data.AddressDTO;
 import de.ossi.data.CustomerDTO;
 import org.junit.jupiter.api.Test;
@@ -8,13 +10,14 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class ServerTest {
 
-    Server uut = new Server(new CustomerConverter(new AddressConverter()));
+class ServerIntegrationTest {
 
     @Test
     void converterShouldConvertToDTOs() {
         //given
+        Injector injector = Guice.createInjector();
+        Server uut = injector.getInstance(Server.class);
         //when
         List<CustomerDTO> allCustomers = uut.getAllCustomer();
         //then
