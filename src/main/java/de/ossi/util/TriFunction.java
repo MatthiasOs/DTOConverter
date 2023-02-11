@@ -1,4 +1,4 @@
-package de.ossi;
+package de.ossi.util;
 
 /**
  * Represents a function that accepts three arguments and produces a result. This is the three-arity specialization of Function.
