@@ -4,5 +4,5 @@
 
 - Converter to map Entities to DTOs
 - Omit several Entity fields to hide the from the Client
-- Uses SingleResponsibility Annotation with the Annotation Processor
+- Uses [SingleResponsibility Annotation](https://github.com/MatthiasOs/Single-Responsibility-Processor) with the Annotation Processor
 - Dependency Injection with Google Guice
